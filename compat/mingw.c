@@ -2285,7 +2285,10 @@ typedef struct _REPARSE_DATA_BUFFER {
 	DWORD  ReparseTag;
 	WORD   ReparseDataLength;
 	WORD   Reserved;
-	_ANONYMOUS_UNION union {
+#ifndef _MSC_VER
+	_ANONYMOUS_UNION
+#endif
+	union {
 		struct {
 			WORD   SubstituteNameOffset;
 			WORD   SubstituteNameLength;
